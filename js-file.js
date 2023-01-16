@@ -1,4 +1,4 @@
-
+let operatiopJustFinished = false;
 let previousNumber;
 let operationsClicked = 0;
 let currOperation;
@@ -9,12 +9,19 @@ numbers.forEach(number => number.addEventListener('click', function() {
 }));
 
 function displayNumber(number) {
+    if(operatiopJustFinished === true) {
+        clear();
+    }
+    operatiopJustFinished = false;
     display.textContent = display.textContent + number;
 }
 
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', function() {
     clear();
+    previousNumber = 0;
+    operationsClicked = 0;
+    operatiopJustFinished = false;
 });
 
 const numSign = document.querySelector('.numSign');
@@ -40,34 +47,35 @@ function add(num1, num2) {
 }
 
 function subtract(num1, num2) {
-    return num1 - num2;
+    return parseInt(num1) - parseInt(num2);
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    return parseInt(num1) / parseInt(num2);
 }
 
 function multiply(num1, num2) {
-    return num1 * num2;
+    return parseInt(num1) * parseInt(num2);
 }
 
 function operate(num1, num2, operation){
     let result;
-    if (operation === '&divide;') {
+    if (operation === 'divide') {
         result = divide(num1, num2);
     }
-    if (operation === '&times;') {
+    if (operation === 'multiply') {
         result = multiply(num1, num2);
     }
-    if (operation === '&minus;') {
+    if (operation === 'subtract') {
         result = subtract(num1, num2);
     }
-    if (operation === '&plus;') {
+    if (operation === 'add') {
         result = add(num1, num2);
     }
     
     previousNumber = result;
-
+    display.textContent = result;
+    operatiopJustFinished = true;
 }
 
 const operations = document.querySelectorAll('.operation');
@@ -80,7 +88,7 @@ operations.forEach(operation => operation.addEventListener('click', function() {
         previousNumber = getCurrNumber();
         clear();
     }
-    currOperation = operation.textContent;
+    currOperation = operation.id;
     operationsClicked = 1;
 }));
 
