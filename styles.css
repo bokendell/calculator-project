@@ -2,3 +2,46 @@
 .calulator {
     display: flex;
 }
+
+#clear,
+#zero {
+    min-width: 100px;
+}
+
+
+
+button {
+    min-width: 50px;
+    min-height: 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.calculator {
+    border: 5px solid black;
+    max-width: 200px;
+    background-color: black;
+}
+
+.display {
+    min-width: 196px;
+    min-height: 50px;
+    text-align: right;
+    font-size: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.number {
+    background-color: #1d3c45;
+}
+
+.operation {
+    background-color: #d2601a;
+}
+
+.clear,
+.numSign {
+    background-color: #fff1e1;
+}
