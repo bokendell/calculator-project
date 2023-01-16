@@ -1,9 +1,12 @@
+body {
+    background-color: darkgray;
+}
+
 .row,
 .calulator {
     display: flex;
 }
 
-#clear,
 #zero {
     min-width: 100px;
 }
@@ -21,6 +24,7 @@ button {
     border: 5px solid black;
     max-width: 200px;
     background-color: black;
+    margin: auto;
 }
 
 .display {
@@ -33,7 +37,8 @@ button {
     background-color: lightgray;
 }
 
-.number {
+.number,
+.decimal {
     background-color: #1d3c45;
 }
 
@@ -42,6 +47,7 @@ button {
 }
 
 .clear,
-.numSign {
+.numSign,
+.delete {
     background-color: #fff1e1;
 }
