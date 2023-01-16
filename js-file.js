@@ -1,4 +1,5 @@
 let operatiopJustFinished = false;
+let containsDecimal = false;
 let previousNumber;
 let operationsClicked = 0;
 let currOperation;
@@ -15,6 +16,12 @@ function displayNumber(number) {
     operatiopJustFinished = false;
     display.textContent = display.textContent + number;
 }
+
+const deleteButton = document.querySelector('.delete');
+deleteButton.addEventListener('click', function() {
+    display.textContent = getCurrNumber().substring(0, getCurrNumber().length - 1);
+});
+
 
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', function() {
@@ -33,6 +40,15 @@ numSign.addEventListener('click', function() {
         display.textContent = '-' + getCurrNumber();
     }
 })
+
+const decimal = document.querySelector('.decimal');
+decimal.addEventListener('click', function() {
+    if (containsDecimal === false) {
+        display.textContent = getCurrNumber() + '.';
+    }
+    containsDecimal = true;
+});
+
 
 function getCurrNumber(){
     return display.textContent;
