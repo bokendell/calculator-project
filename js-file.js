@@ -1,3 +1,5 @@
+// const keys = [8, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 187, 189, 190];
+
 let operatiopJustFinished = false;
 let containsDecimal = false;
 let previousNumber;
@@ -8,6 +10,10 @@ const numbers = document.querySelectorAll('.number');
 numbers.forEach(number => number.addEventListener('click', function() {
     displayNumber(number.textContent);
 }));
+
+// window.addEventListener('keydown', function() {
+//     console.log()
+// });
 
 function displayNumber(number) {
     if(operatiopJustFinished === true) {
@@ -68,6 +74,9 @@ function subtract(num1, num2) {
 }
 
 function divide(num1, num2) {
+    if(num2 === 0) {
+        display.textContent = "wtf";
+    }
     return parseFloat(num1) / parseFloat(num2);
 }
 
@@ -89,7 +98,7 @@ function operate(num1, num2, operation){
     if (operation === 'add') {
         result = add(num1, num2);
     }
-    
+   
     previousNumber = result;
     display.textContent = result;
     operatiopJustFinished = true;
